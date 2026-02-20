@@ -1,8 +1,13 @@
 [package]
 name = "anew"
 version = "0.1.0"
-edition = "2024"
+authors = ["Ariel Ril"]
+description = "ANEW append new lines to files"
+license = "MIT"
+license-file = "LICENSE"
+documentation = "https://github.com/arielril/anew"
+homepage = "https://github.com/arielril/anew"
+repository = "https://github.com/arielril/anew"
 
 [dependencies]
 anyhow = "1.0.101"
-clap = { version = "4.5.60", features = ["derive"] }
