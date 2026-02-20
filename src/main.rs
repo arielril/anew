@@ -4,13 +4,20 @@ use std::io::{Read, Write};
 use std::{env, io};
 
 fn main() -> Result<(), anyhow::Error> {
+    let usage = "Usage: anew <FILE>\n\nFlags:\n-h/--help: Print help";
+
     let args = env::args().collect::<Vec<String>>();
 
     if args.len() < 2 {
-        return Err(anyhow::anyhow!("invalid arguments.\nUsage: anew <FILE>"));
+        return Err(anyhow::anyhow!("invalid arguments.\n\n{}", usage));
     }
 
     let input_file_name = &args[1];
+
+    if input_file_name.eq_ignore_ascii_case("-h") || input_file_name.eq_ignore_ascii_case("--help") {
+        println!("{}", usage);
+        return Ok(());
+    }
 
     let mut file_handle = File::options()
         .append(true)
